@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".presentation.HoldingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SagarPaliwal_Task" />
     </application>
 
 </manifest>

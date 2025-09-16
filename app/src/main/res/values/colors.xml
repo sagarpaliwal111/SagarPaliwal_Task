@@ -2,4 +2,36 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Colors -->
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#BBDEFB</color>
+    
+    <!-- Text Colors -->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="hint_text">#BDBDBD</color>
+    
+    <!-- Background Colors -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_dark">#303030</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="error_red">#F44336</color>
+    <color name="warning_orange">#FF9800</color>
+    
+    <!-- Portfolio Specific Colors -->
+    <color name="portfolio_blue">#1E3A8A</color>
+    <color name="portfolio_light_blue">#3B82F6</color>
+    <color name="profit_green">#10B981</color>
+    <color name="loss_red">#EF4444</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#667eea</color>
+    <color name="gradient_end">#764ba2</color>
+    
+    <!-- Additional Colors -->
+    <color name="divider_color">#E0E0E0</color>
 </resources>

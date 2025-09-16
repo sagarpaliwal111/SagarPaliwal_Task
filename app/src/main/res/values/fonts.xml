@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Font Families -->
+    <string name="font_family_primary">sans-serif</string>
+    <string name="font_family_primary_light">sans-serif-light</string>
+    <string name="font_family_primary_medium">sans-serif-medium</string>
+    <string name="font_family_primary_black">sans-serif-black</string>
+    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="font_family_monospace">monospace</string>
+</resources>

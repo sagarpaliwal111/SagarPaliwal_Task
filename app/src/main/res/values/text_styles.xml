@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heading Styles -->
+    <style name="PortfolioHeading1">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@string/font_family_primary_black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="PortfolioHeading2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="PortfolioHeading3">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Body Text Styles -->
+    <style name="PortfolioBody1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="PortfolioBody2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="PortfolioBody3">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <!-- Caption Styles -->
+    <style name="PortfolioCaption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PortfolioOverline">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="PortfolioButton">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Stock Symbol Style -->
+    <style name="PortfolioStockSymbol">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Financial Data Styles -->
+    <style name="PortfolioFinancialData">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="PortfolioFinancialLabel">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <!-- Tab Styles -->
+    <style name="PortfolioTab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="PortfolioTabActive">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="PortfolioTabInactive">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!-- Summary Styles -->
+    <style name="PortfolioSummaryTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="PortfolioSummaryValue">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PortfolioSummaryLabel">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="PortfolioSummaryData">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <!-- Feature Card Styles -->
+    <style name="PortfolioFeatureTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="PortfolioFeatureSubtitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <!-- Welcome Text Styles -->
+    <style name="PortfolioWelcome">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="PortfolioWelcomeSubtitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:alpha">0.8</item>
+    </style>
+
+    <!-- Footer Style -->
+    <style name="PortfolioFooter">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_primary_light</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+</resources>

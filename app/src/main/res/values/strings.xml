@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SagarPaliwal_Task</string>
+    <string name="profit_amp_loss"><![CDATA[Profit & Loss*]]></string>
+    <string name="_697_06_2_44">-₹697.06 (2.44%)</string>
+    <string name="current_value">Current value*</string>
+    <string name="_27_893_65">₹ 27,893.65</string>
+    <string name="_28_590_71">₹ 28,590.71</string>
+    <string name="today_s_profit_amp_loss"><![CDATA[Today\'s Profit & Loss*]]></string>
+    <string name="_235_65">₹235.65</string>
 </resources>
