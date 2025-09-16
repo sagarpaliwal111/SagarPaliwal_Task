@@ -64,6 +64,21 @@ class HoldingsActivity : AppCompatActivity() {
         binding.summaryCollapsed.setOnClickListener {
             toggleSummaryExpansion()
         }
+        
+        // Profile icon click
+        binding.profileIcon.setOnClickListener {
+            android.widget.Toast.makeText(this, "Profile settings coming soon!", android.widget.Toast.LENGTH_SHORT).show()
+        }
+        
+        // Sort icon click
+        binding.sortIcon.setOnClickListener {
+            android.widget.Toast.makeText(this, "Sort by: Name, Value, P&L", android.widget.Toast.LENGTH_SHORT).show()
+        }
+        
+        // Search icon click
+        binding.searchIcon.setOnClickListener {
+            android.widget.Toast.makeText(this, "Search holdings by symbol or name", android.widget.Toast.LENGTH_SHORT).show()
+        }
     }
     
     private fun setupObservers() {

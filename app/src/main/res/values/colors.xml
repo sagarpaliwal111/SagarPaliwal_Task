@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
     
-    <!-- Primary Colors -->
-    <color name="primary_color">#1976D2</color>
-    <color name="primary_dark">#1565C0</color>
-    <color name="primary_light">#BBDEFB</color>
+    <!-- Professional Primary Colors -->
+    <color name="primary_color">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_light">#93C5FD</color>
     
-    <!-- Text Colors -->
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
-    <color name="hint_text">#BDBDBD</color>
+    <!-- Professional Text Colors -->
+    <color name="primary_text">#111827</color>
+    <color name="secondary_text">#6B7280</color>
+    <color name="hint_text">#9CA3AF</color>
     
-    <!-- Background Colors -->
-    <color name="background_light">#FAFAFA</color>
-    <color name="background_dark">#303030</color>
+    <!-- Professional Background Colors -->
+    <color name="background_light">#F9FAFB</color>
+    <color name="background_dark">#1F2937</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_gray">#F3F4F6</color>
     
-    <!-- Status Colors -->
-    <color name="success_green">#4CAF50</color>
-    <color name="error_red">#F44336</color>
-    <color name="warning_orange">#FF9800</color>
+    <!-- Professional Status Colors -->
+    <color name="success_green">#059669</color>
+    <color name="error_red">#DC2626</color>
+    <color name="warning_orange">#D97706</color>
     
-    <!-- Portfolio Specific Colors -->
-    <color name="portfolio_blue">#1E3A8A</color>
+    <!-- Professional Portfolio Colors -->
+    <color name="portfolio_blue">#1E40AF</color>
     <color name="portfolio_light_blue">#3B82F6</color>
-    <color name="profit_green">#10B981</color>
-    <color name="loss_red">#EF4444</color>
+    <color name="profit_green">#059669</color>
+    <color name="loss_red">#DC2626</color>
     
-    <!-- Gradient Colors -->
-    <color name="gradient_start">#667eea</color>
-    <color name="gradient_end">#764ba2</color>
+    <!-- Professional Gradient Colors -->
+    <color name="gradient_start">#3B82F6</color>
+    <color name="gradient_end">#1E40AF</color>
     
-    <!-- Additional Colors -->
-    <color name="divider_color">#E0E0E0</color>
+    <!-- Professional Additional Colors -->
+    <color name="divider_color">#E5E7EB</color>
+    <color name="border_color">#D1D5DB</color>
+    <color name="accent_blue">#2563EB</color>
+    <color name="text_muted">#6B7280</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#374151</color>
 </resources>

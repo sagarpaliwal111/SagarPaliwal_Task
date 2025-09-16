@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
     android:background="@color/white">
 
     <!-- Stock Symbol -->
@@ -14,6 +13,8 @@
         android:layout_height="wrap_content"
         android:text="ASHOKLEY"
         android:textAppearance="@style/PortfolioStockSymbol"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,6 +56,7 @@
         android:textColor="@color/primary_text"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/textSymbol" />
 
@@ -63,12 +65,12 @@
         android:id="@+id/textPnl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="P&amp;L: ₹12.90"
         android:textColor="@color/profit_green"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="@id/textLtp"
+        app:layout_constraintEnd_toEndOf="@+id/textLtp"
         app:layout_constraintTop_toBottomOf="@id/textLtp" />
 
     <!-- Divider -->
