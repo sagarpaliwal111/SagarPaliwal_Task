@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SagarPaliwal_Task"
 include(":app")
+include(":core")
+include(":network")
