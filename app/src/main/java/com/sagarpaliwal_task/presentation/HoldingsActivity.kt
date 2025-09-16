@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -13,10 +16,15 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sagarpaliwal_task.R
+import com.sagarpaliwal_task.core.model.UserHolding
 import com.sagarpaliwal_task.databinding.ActivityHoldingsBinding
 import com.sagarpaliwal_task.presentation.adapter.HoldingsAdapter
 import com.sagarpaliwal_task.presentation.model.PortfolioSummary
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
+enum class SortType {
+    NAME, LTP, QUANTITY, PNL
+}
 
 class HoldingsActivity : AppCompatActivity() {
     
@@ -24,12 +32,14 @@ class HoldingsActivity : AppCompatActivity() {
     private val viewModel: HoldingsViewModel by viewModel()
     private lateinit var holdingsAdapter: HoldingsAdapter
     private var isSummaryExpanded = false
+    private var allHoldings: List<UserHolding> = emptyList()
+    private var filteredHoldings: List<UserHolding> = emptyList()
+    private var currentSortType = SortType.NAME
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Handle system UI for edge-to-edge display
-        setupSystemUI()
+
         
         binding = ActivityHoldingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,16 +50,6 @@ class HoldingsActivity : AppCompatActivity() {
         
         // Load holdings data
         viewModel.loadHoldings()
-    }
-    
-    @SuppressLint("NewApi")
-    private fun setupSystemUI() {
-        // Set status bar color to match app bar
-        window.statusBarColor = getColor(R.color.portfolio_blue)
-        
-        // Make status bar content light (for white status bar icons)
-        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-        windowInsetsController.isAppearanceLightStatusBars = false
     }
     
     private fun setupRecyclerView() {
@@ -67,17 +67,17 @@ class HoldingsActivity : AppCompatActivity() {
         
         // Profile icon click
         binding.profileIcon.setOnClickListener {
-            android.widget.Toast.makeText(this, "Profile settings coming soon!", android.widget.Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Profile settings coming soon!", Toast.LENGTH_SHORT).show()
         }
         
         // Sort icon click
         binding.sortIcon.setOnClickListener {
-            android.widget.Toast.makeText(this, "Sort by: Name, Value, P&L", android.widget.Toast.LENGTH_SHORT).show()
+            showSortDialog()
         }
         
         // Search icon click
         binding.searchIcon.setOnClickListener {
-            android.widget.Toast.makeText(this, "Search holdings by symbol or name", android.widget.Toast.LENGTH_SHORT).show()
+            showSearchDialog()
         }
     }
     
@@ -85,7 +85,9 @@ class HoldingsActivity : AppCompatActivity() {
         // Observe holdings data
         viewModel.holdingsData.observe(this, Observer { holdings ->
             holdings?.let {
-                holdingsAdapter.submitList(it.data.userHolding)
+                allHoldings = it.data.userHolding
+                filteredHoldings = allHoldings
+                applySortAndFilter()
                 calculateAndUpdateSummary(it.data.userHolding)
             }
         })
@@ -108,7 +110,7 @@ class HoldingsActivity : AppCompatActivity() {
         updateSummaryUI(summary)
     }
     
-    private fun calculatePortfolioSummary(holdings: List<com.sagarpaliwal_task.core.model.UserHolding>): PortfolioSummary {
+    private fun calculatePortfolioSummary(holdings: List<UserHolding>): PortfolioSummary {
         var currentValue = 0.0
         var totalInvestment = 0.0
         var todaysPnL = 0.0
@@ -235,5 +237,200 @@ class HoldingsActivity : AppCompatActivity() {
             }
         })
         heightAnimator.start()
+    }
+    
+    private fun showSortDialog() {
+        val sortOptions = arrayOf("Name (A-Z)", "LTP (High to Low)", "Quantity (High to Low)", "P&L (High to Low)")
+        val currentSelection = when (currentSortType) {
+            SortType.NAME -> 0
+            SortType.LTP -> 1
+            SortType.QUANTITY -> 2
+            SortType.PNL -> 3
+        }
+        
+        AlertDialog.Builder(this)
+            .setTitle("Sort Holdings")
+            .setSingleChoiceItems(sortOptions, currentSelection) { dialog, which ->
+                currentSortType = when (which) {
+                    0 -> SortType.NAME
+                    1 -> SortType.LTP
+                    2 -> SortType.QUANTITY
+                    3 -> SortType.PNL
+                    else -> SortType.NAME
+                }
+                applySortAndFilter()
+                dialog.dismiss()
+                Toast.makeText(this, "Sorted by ${sortOptions[which]}", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    
+    private fun showSearchDialog() {
+        // Create main container with Apple-style design
+        val mainLayout = android.widget.LinearLayout(this)
+        mainLayout.orientation = android.widget.LinearLayout.VERTICAL
+        mainLayout.setPadding(0, 0, 0, 0)
+        mainLayout.setBackgroundColor(getColor(R.color.white))
+        
+        // Create rounded corner background
+        val backgroundDrawable = android.graphics.drawable.GradientDrawable()
+        backgroundDrawable.setColor(getColor(R.color.white))
+        backgroundDrawable.cornerRadius = 24f
+        backgroundDrawable.setStroke(1, getColor(R.color.border_color))
+        mainLayout.background = backgroundDrawable
+        
+        // Title section
+        val titleLayout = android.widget.LinearLayout(this)
+        titleLayout.orientation = android.widget.LinearLayout.VERTICAL
+        titleLayout.setPadding(32, 32, 32, 16)
+        
+        val titleText = android.widget.TextView(this)
+        titleText.text = "Search Holdings"
+        titleText.textSize = 22f
+        titleText.setTextColor(getColor(R.color.text_primary))
+        titleText.typeface = android.graphics.Typeface.DEFAULT_BOLD
+        titleText.setPadding(0, 0, 0, 8)
+        
+        val subtitleText = android.widget.TextView(this)
+        subtitleText.text = "Find stocks by symbol"
+        subtitleText.textSize = 16f
+        subtitleText.setTextColor(getColor(R.color.text_muted))
+        subtitleText.setPadding(0, 0, 0, 24)
+        
+        titleLayout.addView(titleText)
+        titleLayout.addView(subtitleText)
+        
+        // Search input container
+        val inputContainer = android.widget.LinearLayout(this)
+        inputContainer.orientation = android.widget.LinearLayout.HORIZONTAL
+        inputContainer.setPadding(24, 16, 24, 16)
+        inputContainer.gravity = android.view.Gravity.CENTER_VERTICAL
+        
+        // Create rounded search input
+        val searchInput = android.widget.EditText(this)
+        searchInput.hint = "Enter symbol (e.g., RELIANCE, TCS)"
+        searchInput.setText("")
+        searchInput.textSize = 16f
+        searchInput.setTextColor(getColor(R.color.text_primary))
+        searchInput.setHintTextColor(getColor(R.color.text_muted))
+        searchInput.setPadding(20, 20, 20, 20)
+        searchInput.background = createRoundedInputBackground()
+        searchInput.layoutParams = android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        
+        inputContainer.addView(searchInput)
+        
+        // Button container
+        val buttonContainer = android.widget.LinearLayout(this)
+        buttonContainer.orientation = android.widget.LinearLayout.HORIZONTAL
+        buttonContainer.setPadding(24, 8, 24, 32)
+        buttonContainer.gravity = android.view.Gravity.END
+        
+        // Search button
+        val searchButton = createAppleStyleButton("Search", true)
+        val clearButton = createAppleStyleButton("Clear", false)
+        
+        val buttonLayoutParams = android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        buttonLayoutParams.setMargins(0, 0, 12, 0)
+        
+        searchButton.layoutParams = buttonLayoutParams
+        clearButton.layoutParams = android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        
+        buttonContainer.addView(searchButton)
+        buttonContainer.addView(clearButton)
+        
+        // Add all sections to main layout
+        mainLayout.addView(titleLayout)
+        mainLayout.addView(inputContainer)
+        mainLayout.addView(buttonContainer)
+        
+        // Create and show dialog
+        val dialog = AlertDialog.Builder(this)
+            .setView(mainLayout)
+            .setCancelable(true)
+            .create()
+        
+        // Set click listeners
+        searchButton.setOnClickListener {
+            val query = searchInput.text.toString().trim()
+            if (query.isNotEmpty()) {
+                searchHoldings(query)
+                dialog.dismiss()
+            } else {
+                Toast.makeText(this, "Please enter a symbol to search", Toast.LENGTH_SHORT).show()
+            }
+        }
+        
+        clearButton.setOnClickListener {
+            filteredHoldings = allHoldings
+            applySortAndFilter()
+            dialog.dismiss()
+            Toast.makeText(this, "Search cleared", Toast.LENGTH_SHORT).show()
+        }
+        
+        dialog.show()
+    }
+    
+    private fun createRoundedInputBackground(): android.graphics.drawable.Drawable {
+        val drawable = android.graphics.drawable.GradientDrawable()
+        drawable.setColor(getColor(R.color.background_light))
+        drawable.cornerRadius = 16f
+        drawable.setStroke(2, getColor(R.color.border_color))
+        return drawable
+    }
+    
+    private fun createAppleStyleButton(text: String, isPrimary: Boolean): android.widget.Button {
+        val button = android.widget.Button(this)
+        button.text = text
+        button.textSize = 16f
+        button.setPadding(24, 16, 24, 16)
+        button.minWidth = 100
+        
+        val background = android.graphics.drawable.GradientDrawable()
+        if (isPrimary) {
+            background.setColor(getColor(R.color.portfolio_blue))
+            button.setTextColor(getColor(R.color.white))
+        } else {
+            background.setColor(getColor(R.color.background_light))
+            button.setTextColor(getColor(R.color.text_primary))
+            background.setStroke(2, getColor(R.color.border_color))
+        }
+        background.cornerRadius = 12f
+        button.background = background
+        
+        return button
+    }
+    
+    private fun searchHoldings(query: String) {
+        filteredHoldings = allHoldings.filter { holding ->
+            holding.symbol.contains(query, ignoreCase = true)
+        }
+        applySortAndFilter()
+        
+        if (filteredHoldings.isEmpty()) {
+            Toast.makeText(this, "No holdings found for '$query'", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Found ${filteredHoldings.size} holdings", Toast.LENGTH_SHORT).show()
+        }
+    }
+    
+    private fun applySortAndFilter() {
+        val sortedHoldings = when (currentSortType) {
+            SortType.NAME -> filteredHoldings.sortedBy { it.symbol }
+            SortType.LTP -> filteredHoldings.sortedByDescending { it.ltp }
+            SortType.QUANTITY -> filteredHoldings.sortedByDescending { it.quantity }
+            SortType.PNL -> filteredHoldings.sortedByDescending { (it.ltp - it.avgPrice) * it.quantity }
+        }
+        
+        holdingsAdapter.submitList(sortedHoldings)
     }
 }

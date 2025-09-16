@@ -26,20 +26,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to"
+            android:text="@string/welcome_to"
+            android:layout_marginStart="24dp"
             android:textAppearance="@style/PortfolioWelcome" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Portfolio Tracker"
+            android:text="@string/portfolio_tracker"
+            android:layout_marginStart="24dp"
             android:textAppearance="@style/PortfolioHeading1"
             android:layout_marginTop="4dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Track your investments with precision"
+            android:layout_marginStart="24dp"
+            android:text="@string/track_your_investments_with_precision"
             android:textAppearance="@style/PortfolioWelcomeSubtitle"
             android:layout_marginTop="8dp" />
 
