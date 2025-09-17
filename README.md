@@ -16,7 +16,8 @@ This is a sophisticated Android application that demonstrates enterprise-level d
 - **📊 Real-time Portfolio Tracking**: Live updates of stock holdings with current market values
 - **🔍 Advanced Search & Filter**: Intelligent search by stock symbols with multiple sorting options
 - **📈 Comprehensive Analytics**: Detailed P&L calculations including current value, total investment, and daily performance
-- **🎨 Pixel-Perfect UI**: Professional design with smooth animations and responsive layouts
+- **🎨 Dual UI System**: Choose between traditional XML layouts or modern Jetpack Compose UI
+- **🎭 Pixel-Perfect UI**: Professional design with smooth animations and responsive layouts
 - **🏗️ Clean Architecture**: Multi-module structure following SOLID principles
 - **⚡ High Performance**: Optimized for speed with efficient data handling and UI rendering
 
@@ -84,9 +85,10 @@ graph TB
 - **Error Handling**: Either Pattern (Functional Programming)
 
 ### UI/UX Technologies
+- **Dual UI System**: XML layouts + Jetpack Compose
 - **Layout System**: ConstraintLayout (Performance Optimized)
-- **Material Design**: Google Material Components
-- **Animations**: ObjectAnimator, ValueAnimator, AnimatorSet
+- **Material Design**: Google Material Components & Material3
+- **Animations**: ObjectAnimator, ValueAnimator, AnimatorSet + Compose Animations
 - **Custom Drawables**: Vector assets, gradients, shapes
 - **Typography**: Custom font families and text styles
 
@@ -157,6 +159,13 @@ graph TB
 - **Multiple Sort Options**: Name, LTP, Quantity, P&L
 - **Real-time Filtering**: Instant search results
 - **Clear Functionality**: Easy reset to default view
+
+#### 🎨 Dual UI System
+- **XML UI**: Traditional Android layouts with ViewBinding
+- **Compose UI**: Modern declarative UI with Material3
+- **Seamless Switching**: One-click toggle between UI systems
+- **Feature Parity**: Both UIs offer identical functionality
+- **Performance Optimized**: Each UI system optimized for its framework
 
 ## 🏗️ Architecture Deep Dive
 

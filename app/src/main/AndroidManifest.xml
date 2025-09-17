@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SagarPaliwal_Task"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,12 @@
         </activity>
         
         <activity
-            android:name=".presentation.HoldingsActivity"
+            android:name=".presentation.activity.HoldingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SagarPaliwal_Task" />
+            
+        <activity
+            android:name=".presentation.activity.HoldingsComposeActivity"
             android:exported="false"
             android:theme="@style/Theme.SagarPaliwal_Task" />
     </application>

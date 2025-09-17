@@ -1,18 +1,13 @@
-package com.sagarpaliwal_task.presentation
+package com.sagarpaliwal_task.presentation.activity
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sagarpaliwal_task.R
@@ -20,6 +15,7 @@ import com.sagarpaliwal_task.core.model.UserHolding
 import com.sagarpaliwal_task.databinding.ActivityHoldingsBinding
 import com.sagarpaliwal_task.presentation.adapter.HoldingsAdapter
 import com.sagarpaliwal_task.presentation.model.PortfolioSummary
+import com.sagarpaliwal_task.presentation.viewmodel.HoldingsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 enum class SortType {

@@ -1,4 +1,4 @@
-package com.sagarpaliwal_task.presentation
+package com.sagarpaliwal_task.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

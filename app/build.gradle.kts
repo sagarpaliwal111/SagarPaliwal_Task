@@ -35,6 +35,10 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
 }
 
@@ -66,6 +70,15 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     
+    // Jetpack Compose Dependencies
+    implementation("androidx.compose.ui:ui:1.5.14")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.14")
+    implementation("androidx.compose.material3:material3:1.1.2")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.14")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

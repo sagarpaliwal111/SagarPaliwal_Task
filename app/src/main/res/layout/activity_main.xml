@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.activity.MainActivity">
 
     <!-- Header Section -->
     <LinearLayout
@@ -92,18 +92,45 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnViewPortfolio"
+            <!-- UI Mode Selection Buttons -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="24dp"
-                android:text="View Portfolio"
-                android:textAppearance="@style/PortfolioButton"
-                app:cornerRadius="28dp"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/primary_color"
-                app:iconGravity="textEnd"
-                app:iconPadding="8dp" />
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewPortfolioXml"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="XML UI"
+                    android:textAppearance="@style/PortfolioButton"
+                    app:cornerRadius="28dp"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/primary_color"
+                    app:icon="@drawable/ic_xml"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewPortfolioCompose"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Compose UI"
+                    android:textAppearance="@style/PortfolioButton"
+                    app:cornerRadius="28dp"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/portfolio_light_blue"
+                    app:icon="@drawable/ic_compose"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
