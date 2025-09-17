@@ -27,7 +27,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import com.sagarpaliwal_task.R
 import com.sagarpaliwal_task.core.model.UserHolding
 import com.sagarpaliwal_task.presentation.viewmodel.HoldingsViewModel
-import com.sagarpaliwal_task.presentation.model.PortfolioSummary
+import com.sagarpaliwal_task.core.model.PortfolioSummary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

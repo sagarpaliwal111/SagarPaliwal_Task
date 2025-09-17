@@ -1,4 +1,4 @@
-package com.sagarpaliwal_task.presentation.model
+package com.sagarpaliwal_task.core.model
 
 data class PortfolioSummary(
     val currentValue: Double,

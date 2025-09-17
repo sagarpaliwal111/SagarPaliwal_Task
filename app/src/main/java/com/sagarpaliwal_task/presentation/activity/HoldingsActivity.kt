@@ -14,7 +14,7 @@ import com.sagarpaliwal_task.R
 import com.sagarpaliwal_task.core.model.UserHolding
 import com.sagarpaliwal_task.databinding.ActivityHoldingsBinding
 import com.sagarpaliwal_task.presentation.adapter.HoldingsAdapter
-import com.sagarpaliwal_task.presentation.model.PortfolioSummary
+import com.sagarpaliwal_task.core.model.PortfolioSummary
 import com.sagarpaliwal_task.presentation.viewmodel.HoldingsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
