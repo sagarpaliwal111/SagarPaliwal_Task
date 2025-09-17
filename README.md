@@ -46,7 +46,7 @@ This is a sophisticated Android application that demonstrates enterprise-level d
 graph TB
     subgraph "Presentation Layer"
         A[Activities/Fragments] --> B[ViewModels]
-        B --> C[LiveData/StateFlow]
+        B --> C[LiveData]
     end
     
     subgraph "Domain Layer"
@@ -56,7 +56,6 @@ graph TB
     
     subgraph "Data Layer"
         E --> G[Repository Implementation]
-        G --> H[Local Data Source]
         G --> I[Remote Data Source]
     end
     
@@ -76,7 +75,7 @@ graph TB
 - **Architecture**: MVVM + Clean Architecture
 - **UI Framework**: XML-based layouts with ViewBinding
 - **Dependency Injection**: Koin 3.4.3
-- **Async Operations**: Kotlin Coroutines + Flow
+- **Async Operations**: Kotlin Coroutines
 
 ### Networking & Data
 - **HTTP Client**: Retrofit 2.9.0
@@ -241,53 +240,32 @@ class HoldingsRepositoryImpl(
 - **Custom Animations**: Hardware-accelerated animations
 
 ### Network Performance
-- **OkHttp Interceptors**: Request/response logging and caching
+- **OkHttp Interceptors**: Request/response logging
 - **Retrofit**: Type-safe HTTP client with automatic JSON parsing
 - **Coroutines**: Non-blocking asynchronous operations
-- **Error Handling**: Graceful failure management
+- **Error Handling**: Graceful failure management with Either pattern
 
 ### Memory Management
 - **Lifecycle-aware Components**: Proper cleanup of resources
-- **Weak References**: Preventing memory leaks
-- **Image Optimization**: Vector drawables for scalability
+- **Vector Drawables**: Scalable icons for better performance
 
-## 🧪 Testing Strategy
 
-### Unit Testing
-- **ViewModel Tests**: Business logic validation
-- **Repository Tests**: Data layer verification
-- **Use Case Tests**: Domain logic testing
-
-### Integration Testing
-- **API Integration**: Network layer testing
-- **Database Integration**: Local storage testing
-
-### UI Testing
-- **Espresso Tests**: User interaction validation
-- **Accessibility Tests**: WCAG compliance verification
-
-## 🔒 Security Considerations
-
-- **Network Security**: HTTPS-only communication
-- **Data Validation**: Input sanitization and validation
-- **Error Handling**: No sensitive information in error messages
-- **Permissions**: Minimal required permissions
 
 ## 📈 Future Enhancements
 
 ### Planned Features
 - **📱 Offline Support**: Local caching with Room database
 - **🔔 Push Notifications**: Real-time price alerts
-- **📊 Advanced Charts**: Interactive price charts with MPAndroidChart
+- **📊 Advanced Charts**: Interactive price charts
 - **👤 User Authentication**: Secure login with biometric support
 - **🌐 Multi-language**: Internationalization support
 - **📱 Tablet Support**: Optimized tablet layouts
 
 ### Technical Improvements
 - **🧪 Comprehensive Testing**: 90%+ code coverage
-- **📊 Analytics Integration**: Firebase Analytics
-- **🔍 Crash Reporting**: Firebase Crashlytics
-- **⚡ Performance Monitoring**: Firebase Performance
+- **📊 Analytics Integration**: User behavior tracking
+- **🔍 Crash Reporting**: Error monitoring
+- **⚡ Performance Monitoring**: App performance tracking
 - **🔄 CI/CD Pipeline**: Automated testing and deployment
 
 ## 🤝 Contributing
