@@ -1,5 +1,6 @@
 package com.sagarpaliwal_task.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -32,6 +33,7 @@ class HoldingsAdapter : ListAdapter<UserHolding, HoldingsAdapter.HoldingViewHold
 
         private val decimalFormat = DecimalFormat("#,##0.00")
 
+        @SuppressLint("SetTextI18n")
         fun bind(holding: UserHolding) {
             binding.apply {
                 // Set stock symbol
